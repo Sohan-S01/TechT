@@ -1,0 +1,17 @@
+#include<stdio.h>
+
+int main() {
+    int m,p,c,total;
+    float avg;
+    printf("Enter the marks :\n");
+    scanf("%d%d%d",&m,&p,&c);
+    if(m>35 && p>35 && c>35){
+        total=m+p+c;
+        avg=total/3.00;
+        printf("Result=Pass\nTotal marks = %d\nAverage marks = %f\n",total,avg);
+    }
+    else{
+        printf("Result = Fail\n");
+    }
+    return 0;
+}
