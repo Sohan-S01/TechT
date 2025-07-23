@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+int main() {
+    float cur_bal = 1000,dep,draw;
+    int pin = 1234,p,op,ch_pin,pin1,pin2;
+    printf("Enter your PIN :\n");
+    scanf("%d",&p);
+    if(p==pin)
+    {
+        while(1)
+        {
+            printf("Enter what you want to do : \n1.Deposit \n2.Withdraw \n3.Balance enquiery \n4.Change PIN \n5.Exit\n");
+            scanf("Enter your option : \n");
+            scanf("%d",&op);
+            switch(op)
+            {
+                case 1 :printf("Enter the amount to deposit : \n");
+                        scanf("%f",&dep);
+                        cur_bal = cur_bal + dep;
+                        printf("Your Balance : %.2f\n",cur_bal);
+                        break;
+                case 2 :printf("Enter the amount to withdraw : \n");
+                        scanf("%f",&draw);
+                        cur_bal = cur_bal - draw;
+                        printf("Withdrawn successfully!\n");
+                        break;
+                case 3 :printf("Balance is : %f\n",cur_bal);
+                        break;
+                case 4 :printf("Enter your old PIN : \n");
+                        scanf("%d",&ch_pin);
+                        if(ch_pin==pin)
+                        {
+                            printf("Enter your new PIN : \n");
+                            scanf("%d",&pin1);
+                            printf("Enter PIN again to confirm : \n");
+                            scanf("%d",&pin2);
+                            if(pin1==pin2)
+                            {
+                                pin=pin1;
+                                printf("PIN is updated !\n");
+                            }
+                            else
+                            {
+                                printf("Given PIN does not match!\n");
+                            }
+                        }
+                        else
+                        {
+                            printf("Wrong PIN !\n");
+                        }
+                        break;
+                case 5 :exit(0);
+                default :printf("Incorrect\n");
+                         break;
+            }
+        }
+    }else{
+        printf("Incorrect PIN");
+    }
+    return 0;
+}
