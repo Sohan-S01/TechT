@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float a, b, c, x1, x2;
+    printf("Enter the values of a, b, c of a quadratic equation:\n");
+    scanf("%f%f%f", &a, &b, &c);
+
+    float discriminant = pow(b, 2) - 4 * a * c;
+
+    if (discriminant > 0) {
+        float root = sqrt(discriminant);
+        x1 = (-b + root) / (2 * a);
+        x2 = (-b - root) / (2 * a);
+        printf("The roots are real and distinct: \n%f %f\n", x1, x2);
+    } else if (discriminant == 0) {
+        x1 = -b / (2 * a);
+        printf("The roots are real and equal:\n%f %f\n", x1, x1);
+    } else {
+        float realPart = -b / (2 * a);
+        float imagPart = sqrt(-discriminant) / (2 * a);
+        printf("The roots are complex: \n%f + %fi and %f - %fi\n", realPart, imagPart, realPart, imagPart);
+    }
+
+    return 0;
+}
