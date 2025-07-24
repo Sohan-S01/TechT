@@ -1,0 +1,24 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+bool check(int x){
+    if(x%2==0)
+        return true;
+    else
+        return false;
+}
+
+int main() {
+    int x,t;
+    cout<<"Enter the number :\n";
+    cin >> x;
+    t=check(x);
+    if(t==1){
+        cout<<"The number is even";
+    }
+    else{
+        cout<<"The number is odd";
+    }
+    return 0;
+}
