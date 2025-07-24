@@ -1,0 +1,16 @@
+#include <iostream>
+#include <limits.h>
+#include <time.h>
+using namespace std;
+
+int generateRandom() {
+    srand(time(0));
+    int x = rand() % 10000 + 1;
+    return x;
+}
+
+int main() {
+    int x = generateRandom();
+    cout << x;
+    return 0;
+}
