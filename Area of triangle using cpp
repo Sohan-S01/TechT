@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+float area(float b,float h) {
+    return 0.5*b*h;
+}
+
+int main() {
+    float b , h , a;
+    cout << "Enter the base and height : \n";
+    cin >> b >> h;
+    a = area(b,h);
+    cout << "Area of triangle is: " << a;
+    return 0;
+}
