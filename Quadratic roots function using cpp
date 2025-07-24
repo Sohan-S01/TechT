@@ -1,0 +1,19 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+double roots(double a,double b,double c){
+    double d = sqrt(b*b - 4*a*c);
+    double x1 = (-b + d) / (2*a);
+    double x2 = (-b - d) / (2*a);
+    cout << "Roots: " << x1 << " " << x2;
+    return 0;
+}
+
+int main() {
+    double a, b, c;
+    cout<<"Enter the numbers :\n";
+    cin >> a >> b >> c;
+    roots ( a , b , c);
+    return 0;
+}
