@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 25, b = 8, c;
+    c = a * b;
+    cout<<"The multiplication of 2 numbers is : "<<c;
+    return 0;
+}
