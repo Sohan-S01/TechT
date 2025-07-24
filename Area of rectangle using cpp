@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+float area(float h, float b) {
+    return h * b;
+}
+
+int main() {
+    float h, b, a;
+    cout << "Enter the height and breadth: \n";
+    cin >> h >> b;
+    a = area(h, b);
+    cout << "Area of rectangle is: " << a;
+    return 0;
+}
