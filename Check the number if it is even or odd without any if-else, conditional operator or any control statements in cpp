@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+void check(int x, const char* arr[]) {
+    cout << "The given number is " << arr[x % 2];
+}
+
+int main() {
+    int x;
+    const char* arr[] = {"Even", "Odd"};
+    cout << "Enter the number:\n";
+    cin >> x;
+    check(x, arr);
+    return 0;
+}
