@@ -1,0 +1,10 @@
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    float a = 25, b = 8, c;
+    c = a / b;
+    cout<<"The division of 2 numbers is : "<<c;
+    return 0;
+}
