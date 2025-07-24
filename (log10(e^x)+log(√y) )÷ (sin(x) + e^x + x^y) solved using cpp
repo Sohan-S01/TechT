@@ -1,0 +1,17 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+float solve(float x , float y){
+    float res = (log10(exp(x))+log(sqrt(y)))/(sin(x)+exp(y)+pow(x,y));
+    cout<<"Result : "<<res ;
+    return 0;
+}
+
+int main() {
+    float x,y;
+    cout<<"Enter the numbers :\n";
+    cin >> x >> y;
+    solve(x,y);
+    return 0;
+}
