@@ -1,0 +1,20 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+void check(int x){
+    if(x%2==0){
+        cout<<"The number is even";
+    }
+    else{
+        cout<<"The number is odd";
+    }
+}
+
+int main() {
+    int x,t;
+    cout<<"Enter the number :\n";
+    cin >> x;
+    check(x);
+    return 0;
+}
