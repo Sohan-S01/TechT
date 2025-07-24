@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+struct A{
+    int x;
+    float y;
+    char z;
+}a;
+
+int main() {
+    printf("Enter:\n");
+    scanf("%d",&a.x);
+    a.y=36.58;
+    a.z='M';
+    printf("The value of x = %d",a.x);
+    printf("\nThe value of y = %f ",a.y);
+    printf("\nThe value of z =%c",a.z);
+    printf("\nThe size of the struct = %d",sizeof(a));
+    return 0;
+}
