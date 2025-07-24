@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+struct Student {
+    char std_name[100];
+    int m1, m2, m3;
+    float avg;
+} std;
+
+int main() {
+    printf("Enter Name and 3 subject marks:\n");
+    scanf("%s", std.std_name);
+    scanf("%d %d %d", &std.m1, &std.m2, &std.m3);
+
+    std.avg = (std.m1 + std.m2 + std.m3) / 3.0;
+
+    printf("The Student %s has the following marks in 3 subjects:\n", std.std_name);
+    printf("M1 = %d\n", std.m1);
+    printf("M2 = %d\n", std.m2);
+    printf("M3 = %d\n", std.m3);
+    printf("The average marks is: %.2f\n", std.avg);
+
+    return 0;
+}
