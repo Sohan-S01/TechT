@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+bool check(int m1,int m2,int m3) {
+    if(m1>=35 && m2>=35 && m3>=35){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+int main() {
+    int m1,m2,m3;
+    cout<<"Enter the marks of the student : \n";
+    cin>>m1>>m2>>m3;
+    int a = check(m1,m2,m3);
+    if(a==1)
+        cout<<"Passed!!";
+    else
+        cout<<"Not Passed!!";
+    return 0;
+}
