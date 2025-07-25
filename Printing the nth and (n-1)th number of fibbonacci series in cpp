@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int febTerm(int n) {
+    int a = 1, b = 1, c, count = 2;
+    if(n == 1 || n == 2) {
+        cout << a;
+        return a;
+    }
+    while(true) {
+        count++;
+        c = a + b;
+        a = b;
+        b = c;
+        if(count == n) {
+            cout << a<<"  ";
+            return b;
+        }
+    }
+}
+
+int main() {
+    int n;
+    cout << "Enter the number: \n";
+    cin >> n;
+    int x=febTerm(n);
+    cout<<x;
+    return 0;
+}
