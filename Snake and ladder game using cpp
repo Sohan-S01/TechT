@@ -1,0 +1,65 @@
+#include <iostream>
+#include <limits.h>
+#include <time.h>
+using namespace std;
+
+int condition(int t) {
+    if(t==8)  
+        t += 14;
+    if(t==27) 
+        t += 26;
+    if(t==42) 
+        t += 26;
+    if(t==61) 
+        t += 30;
+    if(t==75) 
+        t += 14;
+    if(t==97) 
+        t -= 80;
+    if(t==93) 
+        t -= 60;
+    if(t==74) 
+        t -= 34;
+    if(t==56) 
+        t -= 30;
+    if(t==23) 
+        t -= 15;
+    return t;
+}
+
+int main() {
+    srand(time(0));
+    int p1 = 0, p2 = 0, p = 1, r, c;
+    while (1) {
+        cout << "Player " << p << " turn: \n";
+        r = (rand() % 10) + 1;
+        if (r > 6) 
+            r -= 4;
+        cout << "Rolled: " << r << endl<<endl;
+        if (p == 1) {
+            p1 += r;
+            p1 = condition(p1);
+            if (p1 == 100) {
+                cout << "Player 1 won the game!!"<<endl;
+                break;
+            } else if (p1 > 100) {
+                p1 -= r;
+            } else {
+                p = 2;
+            }
+        } else {
+            p2 += r;
+            p2 = condition(p2);
+            if (p2 == 100) {
+                cout << "Player 2 won the game!!"<<endl;
+                break;
+            } else if (p2 > 100) {
+                p2 -= r;
+            } else {
+                p = 1;
+            }
+        }
+    }
+
+    return 0;
+}
