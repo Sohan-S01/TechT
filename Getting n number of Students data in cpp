@@ -1,0 +1,95 @@
+#include <iostream>
+using namespace std;
+
+bool passOrFail(int m1, int m2, int m3);
+double total(int m1, int m2, int m3);
+double average(double total);
+void grade(float avg);
+
+class Student {
+public:
+    string name, branch;
+    int ht, m1, m2, m3, year;
+
+    void input() {
+        cout << "Enter name: ";
+        cin >> name;
+        cout << "Hall ticket number: ";
+        cin >> ht;
+        cout << "Branch: ";
+        cin >> branch;
+        cout << "Year: ";
+        cin >> year;
+        cout << "Enter 3 subject marks: ";
+        cin >> m1 >> m2 >> m3;
+    }
+
+    void display(int i) {
+        cout << "--------------------------\n";
+        cout << "Student " << i + 1 << " result:\n";
+        if (passOrFail(m1, m2, m3)) {
+            double t = total(m1, m2, m3);
+            cout << "Total marks: " << t << endl;
+            double a = average(t);
+            cout << "Average: " << a << endl;
+            cout << "Grade: ";
+            grade(a);
+            cout << endl;
+        } else {
+            cout << "Student has Failed in Exams!!" << endl;
+        }
+    }
+};
+
+bool passOrFail(int m1, int m2, int m3) {
+    return (m1 >= 35 && m2 >= 35 && m3 >= 35);
+}
+
+double total(int m1, int m2, int m3) {
+    return m1 + m2 + m3;
+}
+
+double average(double total) {
+    return total / 3.0;
+}
+
+void grade(float avg) {
+    if (avg >= 90) 
+        cout << "O";
+    else if (avg >= 80) 
+        cout << "A+";
+    else if (avg >= 70) 
+        cout << "A";
+    else if (avg >= 60) 
+        cout << "B+";
+    else if (avg >= 50) 
+        cout << "B";
+    else if (avg >= 45) 
+        cout << "C";
+    else if (avg >= 40) 
+        cout << "D";
+    else if (avg >= 35) 
+        cout << "E";
+    else 
+        cout << "F";
+}
+
+int main() {
+    Student s[100];
+    int n, sn;
+    cout << "Enter the number of students: ";
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cout << "\nStudent " << i + 1 << endl;
+        s[i].input();
+    }
+    cout << "\nEnter the student number (1 to " << n << ") to display result: ";
+    cin >> sn;
+    if (sn >= 1 && sn <= n) {
+        s[sn - 1].display(sn - 1);
+    } else {
+        cout << "Invalid student number!\n";
+    }
+
+    return 0;
+}
