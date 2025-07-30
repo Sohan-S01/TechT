@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class A {
+    public:
+        int a, b;
+        A () {
+            a=10;
+            b=20;
+        }
+        int add () {
+            int c = a+b;
+            return c;
+        }
+};
+
+class B : public A {
+    public :
+        int x, y;
+        B () {
+            x=5;
+            y=6;
+        }
+        int product () {
+            int c = x*y;
+            return c;
+        }
+};
+
+int main() {
+    B objB;
+    cout<<objB.add()<<endl;
+    cout<<objB.product()<<endl;
+    return 0;
+}
