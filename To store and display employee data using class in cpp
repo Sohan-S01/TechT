@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+class Employee {
+public:
+    string name,department,designation;
+    int id,salary,experience;
+    void input() {
+        cout<<"Enter Employee details :\n";
+        cout<<"Name of the Employee: \n";
+        cin>>name;
+        cout<<"Id of the Employee: \n";
+        cin>>id;
+        cout<<"Department: \n";
+        cin>>department;
+        cout<<"Experience: \n";
+        cin>>experience;
+        cout<<"Designation: \n";
+        cin>>designation;
+        cout<<"Salary: \n";
+        cin>>salary;
+    }
+    void display() {
+        cout<<"The Employee details of "<<name<<" is:\n"<<endl;
+        cout<<"ID : "<<id<<endl;
+        cout<<"Department : "<<department<<endl;
+        cout<<"Salary : "<<salary<<endl;
+        cout<<"Experience : "<<experience<<endl;
+        cout<<"Designation : "<<designation<<endl;
+    }
+};
+
+int main() {
+    Employee emp;
+    emp.input();
+    emp.display();
+    return 0;
+}
