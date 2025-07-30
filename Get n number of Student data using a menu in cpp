@@ -1,0 +1,160 @@
+#include <iostream>
+using namespace std;
+
+double total(int m1, int m2, int m3);
+double average(double total);
+void grade(float avg);
+
+class Student {
+public:
+    string name, branch;
+    int ht, m1, m2, m3, year;
+    double avg; 
+
+    void input() {
+        cout << "Enter name: ";
+        cin >> name;
+        cout << "Hall ticket number: ";
+        cin >> ht;
+        cout << "Branch: ";
+        cin >> branch;
+        cout << "Year: ";
+        cin >> year;
+        cout << "Enter 3 subject marks: ";
+        cin >> m1 >> m2 >> m3;
+
+        double t = total(m1, m2, m3);
+        avg = average(t); 
+    }
+    void display(int i, Student s[], int totalStudents) {
+        cout << "--------------------------\n";
+        cout << "Student " << i + 1 << " result:\n";
+        double t = total(m1, m2, m3);
+        cout << "Total marks: " << t << endl;
+        cout << "Average: " << avg << endl;
+        int rank = 1;
+        for (int j = 0; j < totalStudents; j++) {
+            if (s[j].ht != ht && s[j].avg > avg) {
+                rank++;
+            }
+        }
+
+        cout << "Grade: ";
+        grade(avg);
+        cout << "Rank: " << rank << endl;
+    }
+};
+
+double total(int m1, int m2, int m3) {
+    return m1 + m2 + m3;
+}
+
+double average(double total) {
+    return total / 3.0;
+}
+
+void grade(float avg) {
+    if (avg >= 90)
+        cout << "O";
+    else if (avg >= 80)
+        cout << "A+";
+    else if (avg >= 70)
+        cout << "A";
+    else if (avg >= 60)
+        cout << "B+";
+    else if (avg >= 50)
+        cout << "B";
+    else if (avg >= 45)
+        cout << "C";
+    else if (avg >= 40)
+        cout << "D";
+    else if (avg >= 35)
+        cout << "E";
+    else
+        cout << "F";
+    cout << endl;
+}
+
+int main() {
+    Student s[100];
+    int n1, n2, ch, ch1, i = 0, k, totalStudents = 0;
+
+    while (true) {
+        cout << "\nEnter the function to perform:\n";
+        cout << "1. Add Student detail\n2. Update Student detail\n3. Display Student Result\n4. Delete Student detail\n5. Exit\n";
+        cin >> ch;
+
+        switch (ch) {
+            case 1:
+                s[i].input();
+                i++;
+                totalStudents++;
+                break;
+
+            case 2:
+                cout << "Enter the Hall ticket number: ";
+                cin >> n1;
+                for (k = 0; k < i; k++) {
+                    if (n1 == s[k].ht) {
+                        cout << "Enter the subject to change:\n1. Subject 1\n2. Subject 2\n3. Subject 3\n";
+                        cin >> ch1;
+                        switch (ch1) {
+                            case 1:
+                                cout << "Enter the new marks for Subject 1: ";
+                                cin >> s[k].m1;
+                                break;
+                            case 2:
+                                cout << "Enter the new marks for Subject 2: ";
+                                cin >> s[k].m2;
+                                break;
+                            case 3:
+                                cout << "Enter the new marks for Subject 3: ";
+                                cin >> s[k].m3;
+                                break;
+                            default:
+                                cout << "Invalid subject choice\n";
+                        }
+                        s[k].avg = average(total(s[k].m1, s[k].m2, s[k].m3));
+                        break;
+                    }
+                }
+                break;
+
+            case 3:
+                cout << "Enter the Hall ticket number: ";
+                cin >> n2;
+                for (k = 0; k < i; k++) {
+                    if (n2 == s[k].ht) {
+                        s[k].display(k, s, totalStudents);
+                        break;
+                    }
+                }
+                break;
+
+            case 4:
+                cout << "Enter the Hall ticket number to delete: ";
+                cin >> n1;
+                for (k = 0; k < i; k++) {
+                    if (n1 == s[k].ht) {
+                        for (int j = k; j < i - 1; j++) {
+                            s[j] = s[j + 1];
+                        }
+                        i--;
+                        totalStudents--;
+                        cout << "Student record deleted.\n";
+                        break;
+                    }
+                }
+                break;
+
+            case 5:
+                cout << "Exiting program...\n";
+                return 0;
+
+            default:
+                cout << "Invalid choice\n";
+        }
+    }
+
+    return 0;
+}
