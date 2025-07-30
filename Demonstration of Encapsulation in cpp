@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class EncapsulatedClass 
+{
+    private :
+        int privateData;
+    public :
+        EncapsulatedClass (int data) {
+            privateData = data;
+        }
+        int getPrivateData () {
+            return privateData;
+        }
+        void setPrivateData (int data) {
+            privateData = data;
+        }
+};
+
+int main () 
+{
+   EncapsulatedClass obj(10);
+   cout<<"Initial private data : "<<obj.getPrivateData()<<endl;
+   obj.setPrivateData(20);
+   cout<<"Modified private data : "<<obj.getPrivateData()<<endl;
+    return 0;
+}
