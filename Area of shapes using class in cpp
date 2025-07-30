@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+class AreaOfShape 
+{
+    public :
+        int area (int l , int w) 
+        {
+            return l * w;
+        }
+        int area (int s) 
+        {
+            return s * s;
+        }
+        double area (double r) 
+        {
+            return 3.142 * r * r;
+        }
+        double area (double h , double b)
+        {
+            return 0.5 * h * b;
+        }
+};
+
+int main () 
+{
+    AreaOfShape a;
+    cout<<"Area of Square : \n"<<a.area(10)<<endl;
+    cout<<"Area of Circle : \n"<<a.area(5.2)<<endl;
+    cout<<"Area of triangle : \n"<<a.area(2.5,3.5)<<endl;
+    cout<<"Area of Rectangle : \n"<<a.area(2,8)<<endl;
+    return 0;
+}
