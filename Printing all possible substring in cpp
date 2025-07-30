@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s;
+    int i ,j;
+    cout<<"Enter the string :\n";
+    std::getline(std::cin , s);
+    cout<<"Given String:"<<s<<endl;
+    cout<<"All substrings are :\n";
+    for(i=0 ; s[i] !='\0' ; i++) {
+        for(j=i ; s[j] !='\0' ; j++) {
+            string s1 = s.substr(i,j-i+1);
+            cout<<s1<<endl;
+        }
+    }
+    return 0;
+}
