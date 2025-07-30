@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int ht;
+    Student () {
+        ht = 123;
+        name = "abc";
+    }
+    Student (int x) {
+        ht = x;
+        name = "xyz";
+    }
+    Student (int a, string b) {
+        ht = a;
+        name = b;
+    }
+    ~Student () {
+        cout<<"Destructor called !!"<<endl;
+    }
+    void display() {
+        cout<<"Name : "<<name<<endl;
+        cout<<"Halle ticket number : "<<ht<<endl;
+    }
+};
+
+int main() {
+    Student s1;
+    Student s2(25);
+    Student s3(50 , "pqr");
+    s1.display();
+    s2.display();
+    s3.display();
+    return 0; 
+}
