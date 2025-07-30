@@ -1,0 +1,67 @@
+#include <iostream>
+using namespace std;
+
+class A {
+    public:
+        int a, b;
+        A () {
+            a=10;
+            b=20;
+        }
+        int add () {
+            int c = a+b;
+            return c;
+        }
+};
+
+class B : public A {
+    public :
+        int x, y;
+        B () {
+            x=5;
+            y=6;
+        }
+        int product () {
+            int c = x*y;
+            return c;
+        }
+};
+
+class C : public A {
+    public:
+        int m, n;
+        C () {
+            m=15;
+            n=20;
+        }
+        int subtract () {
+            int c = n-m;
+            return c;
+        }
+};
+
+class D : public A  {
+    public:
+        int p, q;
+        D () {
+            p=21;
+            q=3;
+        }
+        int divide () {
+            int c = p/q;
+            return c;
+        }
+};
+
+int main() {
+    D objD;
+    B objB;
+    C objC;
+    cout<<objD.add()<<endl;
+    cout<<objD.divide()<<endl;
+    cout<<objB.add()<<endl;
+    cout << objB.product() << endl;
+    cout<<objC.add()<<endl;
+    cout << objC.subtract() << endl;
+    return 0;
+}
